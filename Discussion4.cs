@@ -36,7 +36,7 @@ class Disc4_Try_Catch_Divide
 
             catch (OverflowException)
             {
-                Console.WriteLine("The number entered is too large or too small for an integer"); // catch overflow error
+                Console.WriteLine("The number entered does not fit 32-bit numbers. Enter a number between -2,147,483,647 and 2,147,483,647"); // catch overflow error from numbers that are not 32-bit integers
             }
 
             catch (DivideByZeroException)
