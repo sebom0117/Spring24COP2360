@@ -1,4 +1,3 @@
-
 using System;
 
 class Disc4_Try_Catch_Divide
