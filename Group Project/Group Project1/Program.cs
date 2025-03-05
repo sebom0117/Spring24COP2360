@@ -1,4 +1,6 @@
-﻿using System;
+//See Bottom for Documentation on functions
+
+using System;
 using System.Collections.Generic;
 
 class Program
