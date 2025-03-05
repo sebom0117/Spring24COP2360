@@ -1,0 +1,14 @@
+/Users/seanbomford/Documents/Seans Important Stuff/College Docs/Current Classes/COP2360/Group Project/Group Project1/bin/Debug/net9.0/Group Project1
+/Users/seanbomford/Documents/Seans Important Stuff/College Docs/Current Classes/COP2360/Group Project/Group Project1/bin/Debug/net9.0/Group Project1.deps.json
+/Users/seanbomford/Documents/Seans Important Stuff/College Docs/Current Classes/COP2360/Group Project/Group Project1/bin/Debug/net9.0/Group Project1.runtimeconfig.json
+/Users/seanbomford/Documents/Seans Important Stuff/College Docs/Current Classes/COP2360/Group Project/Group Project1/bin/Debug/net9.0/Group Project1.dll
+/Users/seanbomford/Documents/Seans Important Stuff/College Docs/Current Classes/COP2360/Group Project/Group Project1/bin/Debug/net9.0/Group Project1.pdb
+/Users/seanbomford/Documents/Seans Important Stuff/College Docs/Current Classes/COP2360/Group Project/Group Project1/obj/Debug/net9.0/Group Project1.GeneratedMSBuildEditorConfig.editorconfig
+/Users/seanbomford/Documents/Seans Important Stuff/College Docs/Current Classes/COP2360/Group Project/Group Project1/obj/Debug/net9.0/Group Project1.AssemblyInfoInputs.cache
+/Users/seanbomford/Documents/Seans Important Stuff/College Docs/Current Classes/COP2360/Group Project/Group Project1/obj/Debug/net9.0/Group Project1.AssemblyInfo.cs
+/Users/seanbomford/Documents/Seans Important Stuff/College Docs/Current Classes/COP2360/Group Project/Group Project1/obj/Debug/net9.0/Group Project1.csproj.CoreCompileInputs.cache
+/Users/seanbomford/Documents/Seans Important Stuff/College Docs/Current Classes/COP2360/Group Project/Group Project1/obj/Debug/net9.0/Group Project1.dll
+/Users/seanbomford/Documents/Seans Important Stuff/College Docs/Current Classes/COP2360/Group Project/Group Project1/obj/Debug/net9.0/refint/Group Project1.dll
+/Users/seanbomford/Documents/Seans Important Stuff/College Docs/Current Classes/COP2360/Group Project/Group Project1/obj/Debug/net9.0/Group Project1.pdb
+/Users/seanbomford/Documents/Seans Important Stuff/College Docs/Current Classes/COP2360/Group Project/Group Project1/obj/Debug/net9.0/Group Project1.genruntimeconfig.cache
+/Users/seanbomford/Documents/Seans Important Stuff/College Docs/Current Classes/COP2360/Group Project/Group Project1/obj/Debug/net9.0/ref/Group Project1.dll
