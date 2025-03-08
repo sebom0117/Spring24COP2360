@@ -1,11 +1,29 @@
-//See Bottom for Documentation on functions
+// Documentation:
+// This program is a simple student list management system that allows users to add, update, display, and remove student details.
+// It uses a dictionary to store student names as keys and a list of age and hobbies as values.
+// It starts by populating the dictionary with a default student.
+// The main menu allows users to choose from the following options:
+// 1. Display Student List: Displays student names, details, or name-details pairs.
+// 2. Remove a Student: Removes a student from the list.
+// 3. Add New Student and Details: Adds a new student and their age and hobbies.
+// 4. Add Details to Existing Student: Updates the age and hobbies of an existing student.
+// 5. Sort Names: Sorts the student names in alphabetical order.
+// 6. Exit: Exits the program.
+// It uses a switch statement to handle user input and call the appropriate functions.
+// Each function performs the required operation and provides feedback to the user.
+// It continues to run until the user chooses to exit.
+// It is designed to be simple and easy to use, providing basic functionality for managing a student list.
+// The code is organized into functions for each operation, making it easy to read and maintain.
+// It uses a dictionary to store student details, allowing for efficient lookup and manipulation of data.
+// Overall, this program provides a straightforward solution for managing a student list with basic CRUD operations.
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 class Program
 {
-    // Sean: Dictionary Setup + Populate Function
+    //Dictionary Setup + Populate Function
     static Dictionary<string, List<string>> PopulateDictionary()
     {
         var studentList = new Dictionary<string, List<string>>
@@ -24,7 +42,7 @@ class Program
         return Console.ReadLine() ?? string.Empty;
     }
 
-    //Nicholas: Display + Sort Functions
+    //Display + Sort Functions
     static void DisplayDictionary(Dictionary<string, List<string>> studentList)
     {
         Console.WriteLine("\nDisplay Options:");
@@ -61,16 +79,23 @@ class Program
 
     static void SortKeys(Dictionary<string, List<string>> studentList)
     {
-        var sortedKeys = new List<string>(studentList.Keys);
-        sortedKeys.Sort();
-        Console.WriteLine("\nSorted Names: " + String.Join(", ", sortedKeys));
+        studentList = studentList.OrderBy(x => x.Key).ToDictionary(x => x.Key, x => x.Value);
+        Console.WriteLine("\nSorted Names: " + String.Join(", ", studentList.Keys));
+//        var sortedKeys = new List<string>(studentList.Keys);
+//        sortedKeys.Sort();
+//        Console.WriteLine("\nSorted Names: " + String.Join(", ", sortedKeys));
     }
 
-    // Jhonny: Add and Update Functions
+    //Add and Update Functions
     static void AddKeyValue(Dictionary<string, List<string>> studentList)
     {
         string name = GetInput("Enter student name:");
-        string age = GetInput("Enter age:");
+        string age;
+        do
+        {
+            age = GetInput("Enter age (must be a number):");
+        } while (!int.TryParse(age, out _));
+
         string hobbies = GetInput("Enter hobbies (comma separated):");
 
         if (studentList.ContainsKey(name))
@@ -90,7 +115,12 @@ class Program
 
         if (studentList.ContainsKey(name))
         {
-            string age = GetInput("Enter age:");
+            string age;
+            do
+            {
+                age = GetInput("Enter age (must be a number):");
+            } while (!int.TryParse(age, out _));
+
             string hobbies = GetInput("Enter hobbies (comma separated):");
             studentList[name] = new List<string> { age, hobbies };
             Console.WriteLine("Details updated for existing student.");
@@ -101,7 +131,7 @@ class Program
         }
     }
 
-    // Hava: Remove + Switch Menu + Documentation
+    //Remove + Switch Menu + Documentation
     static void RemoveKey(Dictionary<string, List<string>> studentList)
     {
         string name = GetInput("Enter student name to remove:");
@@ -159,22 +189,3 @@ class Program
         }
     }
 }
-// Documentation:
-// This program is a simple student list management system that allows users to add, update, display, and remove student details.
-// The program uses a dictionary to store student names as keys and a list of age and hobbies as values.
-// The program starts by populating the dictionary with a default student.
-// The main menu allows users to choose from the following options:
-// 1. Display Student List: Displays student names, details, or name-details pairs.
-// 2. Remove a Student: Removes a student from the list.
-// 3. Add New Student and Details: Adds a new student and their age and hobbies.
-// 4. Add Details to Existing Student: Updates the age and hobbies of an existing student.
-// 5. Sort Names: Sorts the student names in alphabetical order.
-// 6. Exit: Exits the program.
-// The program uses a switch statement to handle user input and call the appropriate functions.
-// Each function performs the required operation and provides feedback to the user.
-// The program continues to run until the user chooses to exit.
-// The program is designed to be simple and easy to use, providing basic functionality for managing a student list.
-// The code is organized into functions for each operation, making it easy to read and maintain.
-// The program uses a dictionary to store student details, allowing for efficient lookup and manipulation of data.
-// Overall, this program provides a straightforward solution for managing a student list with basic CRUD operations.
-// End of documentation
