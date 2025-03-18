@@ -28,7 +28,10 @@ class Program
     {
         var studentList = new Dictionary<string, List<string>>
         {
-            {"Alice", new List<string> {"25", "reading, coding"}}
+            {"Sean", new List<string> {"29", "tinkering with servers, scuba diving"}},
+            {"Hava", new List<string> {"25", "reading, coding"}},
+            {"Nicholas", new List<string> {"23", "running, soccer"}},
+            {"Jhonny", new List<string> {"26", "roller derby, sneaker trading"}}
         };
         Console.WriteLine("Student List populated.");
         return studentList;
