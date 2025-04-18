@@ -1,0 +1,122 @@
+using System;
+
+public class Contractor
+{
+    public string Name { get; set; }
+    public int ContractorNumber { get; set; }
+    public DateTime StartDate { get; set; }
+
+    public Contractor(string name, int contractorNumber, DateTime startDate)
+    {
+        Name = name;
+        ContractorNumber = contractorNumber;
+        StartDate = startDate;
+    }
+
+    public Contractor()
+    {
+        Name = string.Empty; // Initialize with a default value
+    }
+}
+
+public class Subcontractor : Contractor
+{
+    public int Shift { get; set; } // 1 for day, 2 for night
+    public double HourlyPayRate { get; set; }
+
+    public Subcontractor(string name, int contractorNumber, DateTime startDate, int shift, double hourlyPayRate)
+        : base(name, contractorNumber, startDate)
+    {
+        Shift = shift;
+        HourlyPayRate = hourlyPayRate;
+    }
+
+    public float CalculatePay(float hoursWorked)
+    {
+        double pay = hoursWorked * HourlyPayRate;
+        if (Shift == 2)
+        {
+            pay += pay * 0.03; // 3% night shift bonus
+        }
+        return (float)pay;
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        List<Subcontractor> subcontractors = new List<Subcontractor>();
+
+        Console.WriteLine("Subcontractor Entry System");
+        string more = "y";
+
+        while (more.ToLower() == "y")
+        {
+            try
+            {
+                Console.Write("Enter Name: ");
+                string name = Console.ReadLine() ?? string.Empty;
+                if (string.IsNullOrWhiteSpace(name))
+                {
+                    Console.WriteLine("Name cannot be empty. Please try again.");
+                    continue;
+                }
+
+                Console.Write("Enter Contractor Number: ");
+                if (!int.TryParse(Console.ReadLine(), out int number))
+                {
+                    Console.WriteLine("Invalid contractor number. Please try again.");
+                    continue;
+                }
+
+                Console.Write("Enter Start Date (yyyy-mm-dd): ");
+                if (!DateTime.TryParse(Console.ReadLine(), out DateTime startDate))
+                {
+                    Console.WriteLine("Invalid date format. Please try again.");
+                    continue;
+                }
+
+                Console.Write("Enter Shift (1 for Day, 2 for Night): ");
+                if (!int.TryParse(Console.ReadLine(), out int shift) || (shift != 1 && shift != 2))
+                {
+                    Console.WriteLine("Invalid shift. Please enter 1 for Day or 2 for Night.");
+                    continue;
+                }
+
+                Console.Write("Enter Hourly Pay Rate: ");
+                if (!double.TryParse(Console.ReadLine(), out double rate) || rate <= 0)
+                {
+                    Console.WriteLine("Invalid hourly pay rate. Please try again.");
+                    continue;
+                }
+
+                Subcontractor sub = new Subcontractor(name, number, startDate, shift, rate);
+                subcontractors.Add(sub);
+
+                Console.Write("Enter hours worked: ");
+                if (!float.TryParse(Console.ReadLine(), out float hoursWorked) || hoursWorked < 0)
+                {
+                    Console.WriteLine("Invalid hours worked. Please try again.");
+                    continue;
+                }
+
+                float pay = sub.CalculatePay(hoursWorked);
+                Console.WriteLine($"Calculated Pay: ${pay:F2}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred: {ex.Message}");
+            }
+
+            Console.Write("Add another subcontractor? (y/n): ");
+            more = Console.ReadLine() ?? string.Empty;
+        }
+
+        Console.WriteLine("\nAll Subcontractors Recorded:");
+        foreach (var subcontractor in subcontractors)
+        {
+            Console.WriteLine($"Name: {subcontractor.Name}, Contractor Number: {subcontractor.ContractorNumber}, Start Date: {subcontractor.StartDate:yyyy-MM-dd}, Shift: {(subcontractor.Shift == 1 ? "Day" : "Night")}, Hourly Pay Rate: ${subcontractor.HourlyPayRate:F2}");
+        }
+    }
+}
