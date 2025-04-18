@@ -1,3 +1,11 @@
+// This program defines a Contractor class and a Subcontractor class that inherits from it.
+// The Contractor class holds basic contractor information such as name, number, and start date.
+// The Subcontractor class adds shift and hourly pay rate, and includes a method to calculate pay
+// with a 3% shift differential for night shift workers. The main program allows the user to
+// input multiple subcontractors, validates the input, calculates pay, and displays a summary
+// of all entered subcontractors.
+
+
 using System;
 
 public class Contractor
